@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { Main } from './components/layout/Main';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    movies: [],
+  };
+  componentDidMount() {
+    fetch('http://www.omdbapi.com/?i=tt3896198&apikey=84b94210&s=matrix')
+      .then((responce) => responce.json())
+      .then((data) => this.setState({ movies: data.Search }));
+  }
+  render() {
+
+    return (
+      <div className='App'>
+        <Header />
+        <Main movies={this.state.movies} />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
