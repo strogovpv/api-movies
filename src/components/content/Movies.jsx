@@ -1,7 +1,14 @@
 import { Movie } from './Movie';
 
-const Movies = ({ movies }) => {
-  return movies.map((item) => <Movie className='movies' movie={item} />);
+const Movies = (props) => {
+  const {movies} = props;
+  return (
+    <div className='movies'>
+      {movies.map((movieItem) => (
+        <Movie movie={movieItem} />
+      ))}
+    </div>
+  );
 };
 
 export { Movies };

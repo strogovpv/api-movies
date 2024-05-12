@@ -1,23 +1,34 @@
 
 function Movie ({movie}) {
+  const { Title: title,
+    Year: year,
+    imbId: id,
+    Type: type,
+    Poster: poster
+  } = movie
   return (
-    <div className="row">
-    <div className="col s6 m12">
-      <div className="card">
-        <div className="card-image">
-          <img src={movie.Poster} alt={movie.Title}/>
-          <span className="card-title">{movie.Title}</span>
+    <div id={id} className="card movie">
+        <div className="card-image waves-effect waves-block waves-light">
+            {poster === 'N/A' ? (
+                <img
+                    className="activator"
+                    src={`https://via.placeholder.com/300x400?text=${title}`}
+                    alt={title}
+                />
+            ) : (
+                <img className="activator" src={poster} alt={title}/>
+            )}
         </div>
         <div className="card-content">
-          <p>{movie.Title}</p>
+            <span className="card-title activator grey-text text-darken-4">
+                {title}
+            </span>
+            <p>
+                {year} <span className="right">{type}</span>
+            </p>
         </div>
-        <div className="card-action">
-          <a href="#!">This is a link</a>
-        </div>
-      </div>
     </div>
-  </div>
-  )
+);
 }
 
 export  {Movie}
