@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 
 class Search extends Component {
   state = {
-    search: '',
+    search: 'matrix',
   };
-  onChange = (evt)=>{
-    this.setState({search: evt.target.value})
+  onChange = (evt) => {
+    this.setState({ search: evt.target.value });
+  };
+
+  handleKey = (evt) => {
+    if(evt.key === 'Enter'){
+      this.props.searchMovies(this.state.search)
+    }
   }
   render() {
     return (
@@ -18,7 +24,11 @@ class Search extends Component {
             placeholder='Search'
             value={this.state.search}
             onChange={this.onChange}
+            onKeyDown={(evt) => this.handleKey(evt)}
           />
+          <button onClick={() => this.props.searchMovies(this.state.search)}>
+            Search
+          </button>
         </div>
       </div>
     );
