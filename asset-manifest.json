@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/api-movies/static/css/main.6e397245.css",
+    "main.js": "/api-movies/static/js/main.afdc5b59.js",
+    "index.html": "/api-movies/index.html",
+    "main.6e397245.css.map": "/api-movies/static/css/main.6e397245.css.map",
+    "main.afdc5b59.js.map": "/api-movies/static/js/main.afdc5b59.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e397245.css",
+    "static/js/main.afdc5b59.js"
+  ]
+}
