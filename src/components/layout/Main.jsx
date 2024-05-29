@@ -14,7 +14,8 @@ class Main extends Component {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=matrix`)
       .then((responce) => responce.json())
       .then((data) => this.setState({ movies: data.Search, loading: false, }))
-      .catch((err)=>console.error(err))
+      .catch((err)=>{console.error(err);
+      this.setState({loading:false})})
   }
 
   searchMovies = (str, typeMovies) => {
