@@ -13,7 +13,8 @@ class Main extends Component {
   componentDidMount() {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=matrix`)
       .then((responce) => responce.json())
-      .then((data) => this.setState({ movies: data.Search, loading: false, }));
+      .then((data) => this.setState({ movies: data.Search, loading: false, }))
+      .catch((err)=>console.error(err))
   }
 
   searchMovies = (str, typeMovies) => {
